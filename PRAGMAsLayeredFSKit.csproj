@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B0BAB52-6383-41BF-B885-9968A49057BF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PRAGMAsLayeredFSKit</RootNamespace>
+    <AssemblyName>PRAGMAsLayeredFSKit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="KeyTutorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeyTutorial.Designer.cs">
+      <DependentUpon>KeyTutorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\HandyDandy.cs" />
+    <Compile Include="RCMMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RCMMode.Designer.cs">
+      <DependentUpon>RCMMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XCIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XCIForm.Designer.cs">
+      <DependentUpon>XCIForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="KeyTutorial.resx">
+      <DependentUpon>KeyTutorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RCMMode.resx">
+      <DependentUpon>RCMMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="XCIForm.resx">
+      <DependentUpon>XCIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="EmbedResources\RCM Mode and Payloads\biskeydump.bin" />
+    <None Include="EmbedResources\RCM Mode and Payloads\hekate_ctcaer.bin" />
+    <None Include="EmbedResources\SDFiles\atmosphere\titles\010000000000100D\exefs\main" />
+    <None Include="EmbedResources\SDFiles\atmosphere\titles\010000000000100D\exefs\main.npdm" />
+    <None Include="EmbedResources\SDFiles\atmosphere\titles\010000000000100D\exefs\rtld.stub" />
+    <None Include="EmbedResources\SDFiles\hbmenu.nro" />
+    <None Include="EmbedResources\SDFiles\hekate_ipl.ini" />
+    <None Include="EmbedResources\SDFiles\modules\loader.kip" />
+    <None Include="EmbedResources\SDFiles\modules\nx-dreport.kip" />
+    <None Include="EmbedResources\SDFiles\modules\romfs\fs_mitm.kip" />
+    <None Include="EmbedResources\SDFiles\modules\romfs\loader.kip" />
+    <None Include="EmbedResources\SDFiles\modules\romfs\sm.kip" />
+    <None Include="EmbedResources\SDFiles\modules\sm.kip" />
+    <None Include="EmbedResources\SDFiles\switch\appstore\appstore.nro" />
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\productsans.ttf" />
+    <None Include="EmbedResources\SDFiles\switch\EdiZon\EdiZon.nacp" />
+    <None Include="EmbedResources\SDFiles\switch\EdiZon\EdiZon.nro" />
+    <None Include="EmbedResources\SDFiles\switch\GagOrder.nro" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\GET.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\icon_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\INSTALLED.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\LOCAL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\noscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\popup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\shade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\SDFiles\switch\appstore\res\UPDATE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\RCM Mode and Payloads\TegraRcmSmash.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\hactool\libmbedcrypto.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\hactool\libmbedtls.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\hactool\libmbedx509.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\hactool\hactool.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbedResources\kernalpatches\kernelpatches.exe" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
