@@ -1,5 +1,6 @@
 ﻿using HandyStuff;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
@@ -57,9 +58,8 @@ namespace PRAGMAsLayeredFSKit
             #region Write the new little endian hexadecimal base 16 hex values to the npdm
             using (FileStream source = File.OpenRead(donorTitleId.Text + "/exefs/main.npdm"))
             using (FileStream destination = File.OpenWrite(donorTitleId.Text + "/exefs/main.npdm.new")) {
-                CopyTo(source, destination, 0x440);// first copy the data before insert
-                new MemoryStream(titleBytes).CopyTo(destination);// write the new donor title id at 0x440 of size 0x8
-                CopyTo(source, destination, (int)(source.Length - 0x440)); // copy remaining data
+                byte[] patchedNpdm = patchTitleId(File.ReadAllBytes(donorTitleId.Text + "/exefs/main.npdm"), titleBytes);
+                destination.Write(patchedNpdm, 0, patchedNpdm.Length);
             }
             #endregion
 
@@ -74,14 +74,36 @@ namespace PRAGMAsLayeredFSKit
                 "HAVE FUN! -PRAGMA"
             );
         }
-        private static void CopyTo(Stream source, Stream destination, int count) {
-            const int bufferSize = (32 * 1024);
-            byte[] buffer = new byte[bufferSize];
-            while (count > 0) {
-                int actualRead = source.Read(buffer, 0, (count > bufferSize ? bufferSize : count));
-                destination.Write(buffer, 0, actualRead);
-                count -= actualRead;
+        private static byte[] patchTitleId(byte[] source, byte[] titleBytes, int offset=0) {
+            //Get to the next 0x41 byte (A)
+            while (source[offset] != 0x41) {
+                offset++;
             }
+            //Loop if the next HEX bytes arent: 43 49 30 (CI0)
+            //These are seperate if's to accomodate offset so its exactly 1 index off from what it just tried, so it doesnt just match 0 on re-loop
+            if (source[++offset] != 0x43) {
+                return patchTitleId(source, titleBytes, offset);
+            }
+            if (source[++offset] != 0x49) {
+                return patchTitleId(source, titleBytes, offset);
+            }
+            if (source[++offset] != 0x30) {
+                return patchTitleId(source, titleBytes, offset);
+            }
+            //Check if the next 12 bytes are 0x00
+            for (int i = 0; i < 12; i++) {
+                ++offset;
+                if (source[offset] != 0x00) {
+                    return patchTitleId(source, titleBytes, (offset - (i+1))); //reloop
+                }
+            }
+            //We are now at the end of ASIC0............
+            //Now just overwrite the next 8 indexes (current titleid) with the new titleid bytes
+            for (int i = 1; i <= 8; i++) {
+                source[(offset + i)] = titleBytes[i-1];
+            }
+            //return the patched source
+            return source;
         }
     }
 }
