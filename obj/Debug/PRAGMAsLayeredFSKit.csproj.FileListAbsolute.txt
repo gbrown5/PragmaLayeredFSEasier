@@ -1,0 +1,12 @@
+C:\Users\garry\Documents\hactool\LFSKit-1.2\bin\Debug\PRAGMAsLayeredFSKit.exe
+C:\Users\garry\Documents\hactool\LFSKit-1.2\bin\Debug\PRAGMAsLayeredFSKit.pdb
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.csprojResolveAssemblyReference.cache
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.KeyTutorial.resources
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.RCMMode.resources
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.Form1.resources
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.Properties.Resources.resources
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.XCIForm.resources
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.csproj.GenerateResource.Cache
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.csproj.CoreCompileInputs.cache
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.exe
+C:\Users\garry\Documents\hactool\LFSKit-1.2\obj\Debug\PRAGMAsLayeredFSKit.pdb

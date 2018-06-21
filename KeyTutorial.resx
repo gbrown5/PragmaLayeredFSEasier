@@ -130,6 +130,7 @@ VOL+ is UP, VOL- is DOWN, POWER is SELECT.
 
 1. "Tools" -&gt; "Dump eMMC BOOT". This will dump "BOOT0" and "BOOT1". Delete "BOOT1".
 2. "Tools" -&gt; "Dump eMMC SYS". This will dump "BCPKG2-1-Normal-Main" aswell as other items we dont need. Delete everything except "BCPKG2-1-Normal-Main"
-3. Put BOOT0 and BCPKG2-1-Normal-Main next to PRAGMA's LFS Kit's .exe file.</value>
+3. Put BOOT0 and BCPKG2-1-Normal-Main next to PRAGMA's LFS Kit's .exe file.
+4. Copy the SBK key and TSEC keys (from the Biskeydump) into the textboxes below. Then, press the "Extract Keys" button.</value>
   </data>
 </root>

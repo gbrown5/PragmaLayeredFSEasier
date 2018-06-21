@@ -19,10 +19,10 @@ namespace HandyStuff {
             File.WriteAllBytes("libmbedx509.dll", Resources.libmbedx509);
         }
         public static void deleteHactool() {
-            File.Delete("hactool.exe");
-            File.Delete("libmbedcrypto.dll");
-            File.Delete("libmbedtls.dll");
-            File.Delete("libmbedx509.dll");
+            //File.Delete("hactool.exe");
+            //File.Delete("libmbedcrypto.dll");
+           // File.Delete("libmbedtls.dll");
+            //File.Delete("libmbedx509.dll");
         }
         public static void rcmSmash(byte[] payload) {
             File.WriteAllBytes("rcmsmasher.exe", Resources.TegraRcmSmash);
