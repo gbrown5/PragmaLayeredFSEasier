@@ -1,11 +1,10 @@
-﻿using HandyStuff;
+using HandyStuff;
 using PRAGMAsLayeredFSKit.Properties;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -31,13 +30,12 @@ namespace PRAGMAsLayeredFSKit
                     string sdRoot = fbd.SelectedPath;
                     int loop = 0;
                     ImageConverter imgConverter = new ImageConverter();
-                    
                     foreach (string file in new string[] {
                         "atmosphere/",
                         "atmosphere/titles/",
                         "atmosphere/titles/010000000000100D/",
                         "atmosphere/titles/010000000000100D/exefs/",
-                        "atmosphere/titles/010000000000100D/exefs/main/",
+                        "atmosphere/titles/010000000000100D/exefs/main",
                         "atmosphere/titles/010000000000100D/exefs/main.npdm",
                         "atmosphere/titles/010000000000100D/exefs/rtld.stub",
                         "modules/",
@@ -53,7 +51,7 @@ namespace PRAGMAsLayeredFSKit
                         "switch/appstore/res/",
                         "switch/appstore/res/default.png",
                         "switch/appstore/res/GET.png",
-                        "switch/appstore/res/iocn.jpg",
+                        "switch/appstore/res/icon.jpg",
                         "switch/appstore/res/icon.png",
                         "switch/appstore/res/icon_small.png",
                         "switch/appstore/res/INSTALLED.png",
@@ -118,45 +116,48 @@ namespace PRAGMAsLayeredFSKit
                                     resource = (byte[])imgConverter.ConvertTo(Resources.as_icon_jpg, typeof(byte[]));
                                     break;
                                 case 13:
-                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_icon_small, typeof(byte[]));
+                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_icon_png, typeof(byte[]));
                                     break;
                                 case 14:
-                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_INSTALLED, typeof(byte[]));
+                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_icon_small, typeof(byte[]));
                                     break;
                                 case 15:
-                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_LOCAL, typeof(byte[]));
+                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_INSTALLED, typeof(byte[]));
                                     break;
                                 case 16:
-                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_noscreen, typeof(byte[]));
+                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_LOCAL, typeof(byte[]));
                                     break;
                                 case 17:
-                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_popup, typeof(byte[]));
+                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_noscreen, typeof(byte[]));
                                     break;
                                 case 18:
-                                    resource = Resources.as_productsans;
+                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_popup, typeof(byte[]));
                                     break;
                                 case 19:
-                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_shade, typeof(byte[]));
+                                    resource = Resources.as_productsans;
                                     break;
                                 case 20:
-                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_UPDATE, typeof(byte[]));
+                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_shade, typeof(byte[]));
                                     break;
                                 case 21:
-                                    resource = Resources.appstore;
+                                    resource = (byte[])imgConverter.ConvertTo(Resources.as_UPDATE, typeof(byte[]));
                                     break;
                                 case 22:
-                                    resource = Resources.EdiZon_nacp;
+                                    resource = Resources.appstore;
                                     break;
                                 case 23:
-                                    resource = Resources.EdiZon_nro;
+                                    resource = Resources.EdiZon_nacp;
                                     break;
                                 case 24:
-                                    resource = Resources.GagOrder;
+                                    resource = Resources.EdiZon_nro;
                                     break;
                                 case 25:
-                                    resource = Resources.hbmenu;
+                                    resource = Resources.GagOrder;
                                     break;
                                 case 26:
+                                    resource = Resources.hbmenu;
+                                    break;
+                                case 27:
                                     resource = Encoding.ASCII.GetBytes(Resources.hekate_ipl);
                                     break;
                             }
@@ -168,17 +169,6 @@ namespace PRAGMAsLayeredFSKit
                     }
                     MessageBox.Show("Done!");
                 }
-            }
-
-            void CopyDir(string sourceDir, string targetDir)
-            {
-                Directory.CreateDirectory(targetDir);
-
-                foreach (var file in Directory.GetFiles(sourceDir))
-                    File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
-
-                foreach (var directory in Directory.GetDirectories(sourceDir))
-                    CopyDir(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
             }
         }
         #region Patch Kernel
